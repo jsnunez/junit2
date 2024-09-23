@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>Example.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">junit2</a> &gt; <a href="index.source.html" class="el_package">com.jsn</a> &gt; <span class="el_source">Example.java</span></div><h1>Example.java</h1><pre class="source lang-java linenums">package com.jsn;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+<span class="fc" id="L6">public class Example {</span>
+    public int sumar(int a, int b) {
+<span class="fc" id="L8">        return a + b;</span>
+    }
+    // 2. Método que lanza una excepción si el argumento es negativo
+    public boolean checkPositivo(int numero) {
+<span class="fc bfc" id="L12" title="All 2 branches covered.">        if (numero &lt; 0) {</span>
+<span class="fc" id="L13">            throw new IllegalArgumentException(&quot;El número no puede ser negativo&quot;);</span>
+        }
+<span class="fc" id="L15">        return true;</span>
+    }
+
+    // 3. Método para contar el número de letras 'a' en una cadena
+    public int contarLetrasA(String cadena) {
+<span class="fc" id="L20">        return (int) cadena.chars()</span>
+<span class="fc bfc" id="L21" title="All 2 branches covered.">                .filter(letra -&gt; letra == 'a')</span>
+<span class="fc" id="L22">                .count();</span>
+    }
+
+    // 4. Método que retorna un valor booleano si la lista contiene el elemento
+    public boolean contieneElemento(List&lt;String&gt; lista, String elemento) {
+<span class="fc" id="L27">        return lista.contains(elemento);</span>
+    }
+
+    // 5. Método para revertir una cadena
+    public String revertirCadena(String cadena) {
+<span class="fc" id="L32">        return new StringBuilder(cadena).reverse().toString();</span>
+    }
+
+    // 6. Método que calcula el factorial de un número
+    public long factorial(int numero) {
+<span class="fc bfc" id="L37" title="All 2 branches covered.">        if (numero &lt; 0) {</span>
+<span class="fc" id="L38">            throw new IllegalArgumentException(&quot;Factorial no definido para números negativos&quot;);</span>
+        }
+<span class="fc" id="L40">        long resultado = 1;</span>
+<span class="fc bfc" id="L41" title="All 2 branches covered.">        for (int i = 1; i &lt;= numero; i++) {</span>
+<span class="fc" id="L42">            resultado *= i;</span>
+        }
+<span class="fc" id="L44">        return resultado;</span>
+    }
+
+    // 7. Método para verificar si un número es primo
+    public boolean esPrimo(int numero) {
+<span class="fc bfc" id="L49" title="All 2 branches covered.">        if (numero &lt;= 1) {</span>
+<span class="fc" id="L50">            return false;</span>
+        }
+<span class="fc bfc" id="L52" title="All 2 branches covered.">        for (int i = 2; i * i &lt;= numero; i++) {</span>
+<span class="fc bfc" id="L53" title="All 2 branches covered.">            if (numero % i == 0) {</span>
+<span class="fc" id="L54">                return false;</span>
+            }
+        }
+<span class="fc" id="L57">        return true;</span>
+    }
+
+    // 8. Método que simula un retraso y retorna un mensaje
+    public String mensajeConRetraso() throws InterruptedException {
+<span class="fc" id="L62">        Thread.sleep(5000);</span>
+<span class="fc" id="L63">        return &quot;Listo después de retraso&quot;;</span>
+    }
+
+    // 9. Método para convertir una lista de enteros a lista de strings
+    public List&lt;String&gt; convertirAString(List&lt;Integer&gt; lista) {
+<span class="fc" id="L68">        return lista.stream()</span>
+<span class="fc" id="L69">                .map(String::valueOf)</span>
+<span class="fc" id="L70">                .collect(Collectors.toList());</span>
+    }
+
+    // 10. Método que calcula la media de una lista de enteros
+    public double calcularMedia(List&lt;Integer&gt; lista) {
+<span class="fc bfc" id="L75" title="All 4 branches covered.">        if (lista == null || lista.isEmpty()) {</span>
+<span class="fc" id="L76">            throw new IllegalArgumentException(&quot;La lista no puede ser nula o vacía&quot;);</span>
+        }
+<span class="fc" id="L78">        return lista.stream()</span>
+<span class="fc" id="L79">                .mapToInt(Integer::intValue)</span>
+<span class="fc" id="L80">                .average()</span>
+<span class="fc" id="L81">                .getAsDouble();</span>
+    }
+
+    // 11. Método para convertir una lista de enteros a lista de strings
+    public String convertirListaAString(List&lt;String&gt; lista) {
+<span class="fc" id="L86">        return lista.stream()</span>
+<span class="fc" id="L87">                .map(String::toUpperCase)</span>
+<span class="fc" id="L88">                .collect(Collectors.joining(&quot;,&quot;));</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.12.202403310830</span></div></body></html>
